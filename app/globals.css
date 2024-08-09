@@ -1,3 +1,4 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -18,16 +19,59 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: black;
+  
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.music-page {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+}
+
+.sidebar {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Allows scrolling if content overflows */
+}
+
+/* Define the keyframes for continuous movement */
+@keyframes moveHorizontally {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Container for the playlist */
+.playlist-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Playlist with animation */
+.playlist {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: moveHorizontally 20s linear infinite;
+  /* Adjust the width to ensure items move continuously */
+  width: calc(200px * 5); /* Adjust based on number of items and size */
+}
+
+/* Ensure playlist items are spaced and centered */
+.music-item {
+  margin: 0 10px; /* Adjust margin as needed */
 }
